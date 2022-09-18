@@ -19,3 +19,5 @@ How to run:
 4. Run the script (in a terminal) in the same directory as the modified / exported '.csv' file with the command 'python3 ImportDiscogsWantlist.py'
 5. Answer the questions, and the script will add the releases to the NEW user's Wantlist.
 6. Any errors (unwritten releases) can be found in the output file 'ImportDiscogsWantlist_output.txt'
+
+*** Inspired and indebted to https://github.com/SkipHendriks/Discogs-Wantlist-Adder
