@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import discogs_client
-import time,  os
+import time,  os,  sys
 
 # Script to import lines for delimitered file (like the Discogs Wantlist exported file)
 # into a Discogs users wantlist.
@@ -95,7 +95,10 @@ def findRecord(line, delimiter, record_format):
     title  = line_split[2]
     # release_id should be the 8th bit of the split line, but sometimes
     # due to extra delimiters, it ends up as 9th or 10th. This is checked later.
-    release_id = line_split[7]
+    if len(line_split) > 7:
+        release_id = line_split[7]
+    else:
+        release_id = "not_found"
             
     (release_id, release_id_found) = check_release_id(release_id, line_split)
     if  release_id_found == False:
@@ -201,8 +204,16 @@ def processLine(line,  delimiter):
                 
     # remove multiple space, other whitespace, etc.
     line_mod = " ".join(line_mod.split())
+    
     # split line
     line_split = line_mod.split(delimiter)
+    if len(line_split) < 3:
+        text = "\nERROR: line doesn't split into enough parts: " + line.strip() 
+        write_out(text)
+        text = "ERROR: Incorrect delimiter specified? Split line: " + str(line_split) 
+        write_out(text)
+        input("\nINFO: Script finished due to ERROR - press return to exit...")
+        sys.exit(99)
     
     # process artist name
     artist_split = line_split[1].split()
@@ -359,12 +370,12 @@ def main():
         print("INFO: of format      : Any" )
     else:
         print("INFO: of format      : " + record_format)
-    input("\nPress return to continue (ctrl-C to exit)")
+    input("\nPress return to continue (ctrl-C to exit)...")
 
     # Process the wantlist file
     readFile(import_filename, delimiter, remove, record_format)
     
-    input("\nINFO: script finished- press return to exit")
+    input("\nINFO: Script finished- press return to exit...")
     
 if __name__ == "__main__":
     main()
