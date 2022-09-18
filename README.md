@@ -3,7 +3,7 @@ Python script to import Discogs Wantlists from a delimitered file (like the Disc
 
 I am a self-taught Python scripter, so this script may not be memory efficient, as fast as possible, and generally 'Pythonic'! Hopefully it is easy for others to read and understand what's going on :-)
 
-I wrote this script to take an exported Discogs Wantlist file (edited if required) and the import (adds releases) into a different user's Wantlist
+I wrote this script to take an exported Discogs Wantlist file (edited if required) and the import to contents (add releases) into a different user's Wantlist
 
 Needs Python 3.x installed
 Need to install Discogs API Client (in a terminal use 'pip3 install discogs_client')
