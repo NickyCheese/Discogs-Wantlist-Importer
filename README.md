@@ -14,8 +14,7 @@ To run the Linux binary executable (ImportDiscogsWantlist_LINUX.bin):
 
 How to run:
 1. Export a Discogs user's wantlist (https://www.discogs.com/users/export) as a '.csv' file.
-2. 
-3. Edit the file to remove / add releases. Lines must be of the below format - text delimited by ','. 
+2. Edit the file to remove / add releases. Lines must be of the below format - text delimited by ','. 
    The artist should be the second field, the title should be the third field and the release id should be the eighth field:
 
       Catalog#,Artist,Title,Label,Format,Rating,Released,release_id,Notes (delimited by ',')  
